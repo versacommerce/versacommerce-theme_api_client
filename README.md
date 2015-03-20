@@ -4,6 +4,10 @@
 
 Versacommerce::ThemeAPIClient is a library to consume the VersaCommerce Theme API.
 
+## Requirements
+
+Ruby ≥ 2.0.0
+
 ## Installation
 
 Add this line to your application's Gemfile:
