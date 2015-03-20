@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'versacommerce/theme_api_client'
+require 'pry'
+
+Pry.start
