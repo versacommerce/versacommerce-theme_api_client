@@ -29,6 +29,8 @@ $ gem install versacommerce-theme_api_client
 Create a client object to work on:
 
 ```ruby
+require 'versacommerce/theme_api_client'
+
 authorization = 'YOUR_AUTHORIZATION'
 client = Versacommerce::ThemeAPIClient.new(authorization: authorization)
 ```
