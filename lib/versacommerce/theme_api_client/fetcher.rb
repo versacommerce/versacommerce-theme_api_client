@@ -84,7 +84,7 @@ module Versacommerce
       end
 
       def with_headers
-        HTTP.with_headers(accept: 'application/json', 'Theme-Authorization' => authorization)
+        HTTP.headers(accept: 'application/json', 'Theme-Authorization' => authorization)
       end
     end
   end
