@@ -73,7 +73,7 @@ module Versacommerce
 
         def delete
           unless new_record?
-            response = fetcher.delete(file_path(path))
+            fetcher.delete(file_path(path))
             content_will_change!
             self.new_record = true
           end
@@ -94,7 +94,7 @@ module Versacommerce
           unless new_record?
             response = fetcher.get(download_path(path))
             self.content = response.to_s
-            clear_attribute_changes(:content)
+            clear_attribute_changes([:content])
           end
 
           self
