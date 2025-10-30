@@ -91,7 +91,10 @@ module Versacommerce
           require 'openssl'
           ssl_context = OpenSSL::SSL::SSLContext.new
           ssl_context.verify_mode = OpenSSL::SSL::VERIFY_NONE
-          http_client = http_client.use(ssl_context: ssl_context)
+
+          # Create new options with SSL context and rebuild HTTP client
+          new_options = http_client.default_options.with_ssl_context(ssl_context)
+          http_client = HTTP::Client.new(new_options)
         end
 
         http_client
