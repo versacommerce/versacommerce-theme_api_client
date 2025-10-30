@@ -84,7 +84,17 @@ module Versacommerce
       end
 
       def with_headers
-        HTTP.headers(accept: 'application/json', 'Theme-Authorization' => authorization)
+        http_client = HTTP.headers(accept: 'application/json', 'Theme-Authorization' => authorization)
+
+        # Apply SSL verification setting if explicitly disabled
+        unless client.ssl_verify
+          require 'openssl'
+          ssl_context = OpenSSL::SSL::SSLContext.new
+          ssl_context.verify_mode = OpenSSL::SSL::VERIFY_NONE
+          http_client = http_client.use(ssl_context: ssl_context)
+        end
+
+        http_client
       end
     end
   end

@@ -7,10 +7,12 @@ require 'versacommerce/theme_api_client/version'
 
 module Versacommerce
   class ThemeAPIClient
-    attr_accessor :authorization
+    attr_accessor :authorization, :ssl_verify
     attr_writer :base_url, :fetcher
 
     def initialize(attributes = {})
+      @ssl_verify = true  # Default to true (secure by default)
+
       attributes.each do |key, value|
         public_send("#{key}=", value)
       end

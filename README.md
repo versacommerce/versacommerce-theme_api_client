@@ -41,6 +41,42 @@ client = Versacommerce::ThemeAPIClient.new(authorization: authorization)
 
 The client object is tied to a single theme, depending on the authorization. You can get an authorization from your shop's admin section.
 
+### Configuration Options
+
+The client accepts the following configuration options:
+
+```ruby
+client = Versacommerce::ThemeAPIClient.new(
+  authorization: 'YOUR_AUTHORIZATION',  # Required: API authorization token
+  base_url: 'https://theme-api.versacommerce.de',  # Optional: Custom API endpoint
+  ssl_verify: true  # Optional: Enable/disable SSL certificate verification (default: true)
+)
+```
+
+#### SSL Verification
+
+By default, SSL certificate verification is enabled. You can disable it for development/testing environments with self-signed certificates:
+
+```ruby
+client = Versacommerce::ThemeAPIClient.new(
+  authorization: 'YOUR_AUTHORIZATION',
+  ssl_verify: false  # Disable SSL verification (not recommended for production)
+)
+```
+
+**Warning:** Disabling SSL verification is not recommended for production environments.
+
+#### Custom Base URL
+
+If you need to connect to a different API endpoint (e.g., staging environment):
+
+```ruby
+client = Versacommerce::ThemeAPIClient.new(
+  authorization: 'YOUR_AUTHORIZATION',
+  base_url: 'https://staging-theme-api.example.com'
+)
+```
+
 ### Working with Directories
 
 #### Finding Directories
